@@ -1,12 +1,22 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+with app.app_context():
+    from . import db
+    db.init_app(app)
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
 
-@app.route('/quien')
-def hello():
-    return 'Argentino 1-0 Corinthians'
+@app.route('/actores')
+def actores():
+    actoresNyA = """
+        SELECT first_name, last_name FROM actor
+        ORDER BY first_name, last_name ASC
+    """
+    con = db.get_db()
+    res = con.execute(actoresNyA)
+    lista_actor = res.fetchall()
+    paginaActores = render_template('actores.html', actores=lista_actor )
+
+    return paginaActores
+
