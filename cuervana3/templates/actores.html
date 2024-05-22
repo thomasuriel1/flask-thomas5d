@@ -1,13 +1,20 @@
-<!DOCTYPE html><html<head>
-    <title>Lista de Actores</title>
-    <link rel="stylesheet" type="text/css"
-        href="{ url_for('static', filename='style.')}">
-</html><body>
-
+<!doctype html>
+<title>{% block title %}{% endblock %} -</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
     <h1>Actores</h1>
     <ul>
         {% for actor in actores %}
             <li>{{actor['first_name'] }} {{actor['last_name'] }}</li>
         {% endfor %}
     </ul>
-</body></html>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
