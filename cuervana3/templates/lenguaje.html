@@ -3,11 +3,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
     <h1>Lenguaje</h1>
+    <body class="colorFondo">
+      
+    
     <ul>
         {% for lengua in lenguaje %}
             <li>{{lengua['name'] }}</li>
         {% endfor %}
     </ul>
+  </body>
 </nav>
 <section class="content">
   <header>

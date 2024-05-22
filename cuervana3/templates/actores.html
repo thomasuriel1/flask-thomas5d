@@ -3,11 +3,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
     <h1>Actores</h1>
+    <body class="colorFondo">
+      
+    
     <ul>
         {% for actor in actores %}
             <li>{{actor['first_name'] }} {{actor['last_name'] }}</li>
         {% endfor %}
     </ul>
+  </body>
 </nav>
 <section class="content">
   <header>
