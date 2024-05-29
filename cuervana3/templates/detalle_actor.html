@@ -1,16 +1,12 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Detalle Actor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  </head>
-<body class="colorFondo">
-    <h1>{{actor['first_name']}} {{actor['last_name']}}</h1>
+{% extends 'base.html' %}
+{% block titulo %} Detalle Actor {% endblock %}
+    
+{% block encabezado %} <h1>{{actor['first_name']}} {{actor['last_name']}}</h1> {% endblock %} 
+{% block contenido %}
     <h2>Peliculas</h2>
     <ul>
         {% for film in peliculas  %}
             <li>{{ film['titulo'] }}</li>
         {% endfor %}
     </ul>
-  </body>
-</html>
+{% endblock %}

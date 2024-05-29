@@ -1,24 +1,10 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} -</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-    <h1>Lenguaje</h1>
-    <body class="colorFondo">
-      
-    
+{% extends 'base.html' %}
+{% block titulo %} Lenguaje {% endblock %}
+{% block encabezado %} Lenguaje {% endblock %} 
+{% block contenido %}
     <ul>
         {% for lengua in lenguaje %}
             <li>{{lengua['name'] }}</li>
         {% endfor %}
     </ul>
-  </body>
-</nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
-</section>
+{% endblock %}
