@@ -39,3 +39,4 @@ def detalle(id):
                                     peliculas=lista_peliculas )
 
     return paginaActores
+

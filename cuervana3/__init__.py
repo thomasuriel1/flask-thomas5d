@@ -12,4 +12,6 @@ app.register_blueprint(actores.bp)
 from . import lenguaje
 app.register_blueprint(lenguaje.bp)
 
+from . import peliculas
+app.register_blueprint(peliculas.bp)
 
