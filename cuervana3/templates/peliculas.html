@@ -2,7 +2,8 @@
 encabezado %} Peliculas {% endblock %} {% block contenido %}
 <ul>
   {% for pelicula in peliculas %}
-  <li>{{pelicula['title'] }}</li>
+  <a href="{{url_for('peliculas.detallePeli', id=pelicula['film_id'])}}"
+  ><li>{{pelicula['title'] }}</li>
   {% endfor %}
 </ul>
 {% endblock %}

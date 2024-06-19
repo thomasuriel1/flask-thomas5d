@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block titulo %} Detalle Peliculas {% endblock %} {%
+block encabezado %}{{peli['title']}} {% endblock %} {% block contenido %}
+<h3>
+  titulo: {{peli['title']}} <br />
+  descripcion: {{peli['description']}} <br />
+  rating: {{peli['rating']}} <br />
+  año estreno: {{peli['release_year']}}
+</h3>
+<h3>Actores de la pelicula</h3>
+<ul>
+  {% for actor in actores %}
+  <li>{{ actor['last_name'] }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
